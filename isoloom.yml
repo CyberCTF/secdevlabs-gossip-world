@@ -1,0 +1,39 @@
+# yaml-language-server: $schema=https://www.isoloom.com/schema/v1.json
+# Gossip World (secDevLabs, by Globo.com) as an Isoloom spec: a Flask gossip site with several
+# cross-site scripting flaws, vendored unchanged in build/app/app/ (the app folder
+# owasp-top10-2021-apps/a3/gossip-world of secDevLabs), built by an overlay of upstream's
+# Dockerfile, and its MariaDB machine. `isoloom generate`, then `isoloom up docker`.
+version: 1
+name: secdevlabs-gossip-world
+
+networks:
+  lab: { cidr: 10.60.96.0/24, internet: false }
+
+machines:
+  mysqldb-a7:
+    networks: { lab: 20 }
+    services: [{ port: 3306, name: mariadb }]
+    resources: { cpus: 1, memory_mb: 512 }
+    volumes: { data: /var/lib/mysql }
+    docker:
+      build: build/mysqldb-a7
+
+  app:
+    networks: { lab: 10 }
+    services: [{ port: 10007, name: web, http: true, publish: 10007 }]
+    resources: { cpus: 1, memory_mb: 512 }
+    depends_on: [mysqldb-a7]
+    docker:
+      build: build/app
+
+checks:
+  - name: the login page answers
+    http: http://app:10007/login
+    wait: 180
+  - name: the gossip search echoes its query unescaped
+    script: checks/search.sh
+    wait: 60
+
+message: |
+  Gossip World answers at http://localhost:{{ machines.app.services.0.publish }}/. Register,
+  log in, then look at how gossips, comments and searches end up in the page.
