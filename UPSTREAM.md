@@ -14,7 +14,7 @@ split so that each part sits in the build folder of the machine that uses it:
 
 | Upstream path (in the app folder) | Here |
 | --- | --- |
-| `everything` | `build/app/app/` |
+| everything | `build/app/app/` |
 
 Each `build/<machine>/Dockerfile` says in its header comment how it differs from upstream:
 
