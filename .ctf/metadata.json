@@ -4,11 +4,5 @@
   "question": "Inject JavaScript through a gossip, a comment or the search that runs in other users' browsers, and use it to steal their session cookie.",
   "category": "WEB",
   "difficulty": 2,
-  "evidence_kind": "SECRET",
-  "capabilities": [
-    "stored-xss",
-    "reflected-xss",
-    "injection",
-    "session-hijacking"
-  ]
+  "evidence_kind": "SECRET"
 }
