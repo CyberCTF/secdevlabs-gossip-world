@@ -135,7 +135,8 @@
       "vagrant": "needs `vm:` on mysqldb-a7, app",
       "proxmox": "needs `vm:` on mysqldb-a7, app",
       "cloud-vm": "needs `vm:` on mysqldb-a7, app",
-      "external": "needs `external:` on mysqldb-a7, app"
+      "external": "needs `external:` on mysqldb-a7, app",
+      "cloud-services": "left out by `targets:`"
     }
   },
   "checks": {
