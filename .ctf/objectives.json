@@ -1,0 +1,32 @@
+{
+  "objectives": [
+    {
+      "key": "main",
+      "title": "Read the flag",
+      "prompt": "Run script in other users' browsers and retrieve the flag (/ctf/flag).",
+      "check": {
+        "evidence": "SECRET",
+        "format": "FLAG{%s}"
+      },
+      "dev": "FLAG{dev-secdevlabs-gossip-world}",
+      "hints": [
+        "User content is rendered into pages without escaping.",
+        "Read about stored and reflected cross-site scripting."
+      ],
+      "steps": [
+        {
+          "key": "class",
+          "title": "Name the weakness",
+          "prompt": "What class of vulnerability is this? (acronym accepted)",
+          "check": {
+            "answer": [
+              "xss",
+              "cross-site scripting",
+              "stored xss"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
