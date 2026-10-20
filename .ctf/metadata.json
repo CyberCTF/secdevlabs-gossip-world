@@ -1,8 +1,11 @@
 {
+  "project_name": "cyberlabs-secdevlabs-gossip-world",
+  "slug": "secdevlabs-gossip-world",
   "title": "secDevLabs Gossip World",
   "description": "A Flask site where logged-in users publish gossips, comment on them and search them, backed by MariaDB. User content is rendered into pages without escaping.",
-  "question": "Inject JavaScript through a gossip, a comment or the search that runs in other users' browsers. The flag is in /ctf/flag; client-side lab.",
-  "category": "WEB",
+  "category": "web",
   "difficulty": 2,
-  "evidence_kind": "SECRET"
+  "evidence_kind": "SECRET",
+  "capabilities": [],
+  "question": "Inject JavaScript through a gossip, a comment or the search that runs in other users' browsers. The flag is in /ctf/flag; client-side lab."
 }
